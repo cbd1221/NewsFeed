@@ -4,16 +4,16 @@
 //
 //  Created by Colin Dively on 9/28/22.
 //
-
+import WebKit
 import SwiftUI
+import Foundation
 
 struct NewsView: View {
-    @State var newsModel = NewsModel.shared
     var newsItem: NewsItem
     @State var expanded = false
     var body: some View {
         LazyVStack {
-            Text(newsItem.title ?? "News Title")
+            Text(newsItem.title ?? "")
                 .font(.headline)
                 .onTapGesture {
                     withAnimation {
@@ -21,9 +21,13 @@ struct NewsView: View {
                     }
                 }
             if (expanded) {
-                RichView(link: newsItem.url!)
+                RichView(link: newsItem.url ?? "https://news.ycombinator.com")
+                    .fixedSize()
             }
-        }
+        }.background(in: RoundedRectangle(cornerRadius: 10.0))
+            .onDisappear {
+                self.expanded = false
+            }
     }
 }
 

@@ -4,19 +4,19 @@
 //
 //  Created by Colin Dively on 9/27/22.
 //
-
+import WebKit
 import Foundation
 import SwiftUI
 
 class NewsModel: ObservableObject {
+    static let shared = NewsModel()
     @Published var busy: Bool
     private let bestStoriesString = "https://hacker-news.firebaseio.com/v0/beststories.json?pretty=print"
     private let jobsString = "https://hacker-news.firebaseio.com/v0/jobstories.json?pretty=print"
-    static let shared = NewsModel()
     var newsRequests: [NewsRequest]
-    var jobRequests: [JobRequest]
-    var newsItems: [NewsItem]
-    var jobItems: [JobItem]
+    var  jobRequests: [JobRequest]
+    @Published var newsItems: [NewsItem]
+    @Published var jobItems: [JobItem]
     var storyIds: [Int] = []
     var jobIds: [Int] = []
     
@@ -27,34 +27,49 @@ class NewsModel: ObservableObject {
         self.newsItems = []
         self.jobItems = []
         self.busy = false
-        do {
-            busy = true
-            if let ids = self.fetchIDArray(url: self.bestStoriesString) {
-                self.storyIds = ids
+        Task {
+            DispatchQueue.main.async {
+                self.busy = true
+            }
+            if let ids = await fetchIDArray(url: bestStoriesString) {
+                storyIds = ids
                 for (_, item) in storyIds.enumerated() {
-                    self.newsRequests.append(NewsRequest(id: item))
+                    newsRequests.append(NewsRequest(id: item))
                 }
                 for request in newsRequests {
                     if let item = request.requestNews() {
-                        self.newsItems.append(item)
+                        DispatchQueue.main.async {
+                            self.newsItems.append(item)
+                        }
                     }
                 }
             }
-            //filter NewsItems
-            filterNews()
-            //fetch jobs
-            if let jobIds = self.fetchIDArray(url: jobsString) {
-                self.jobIds = jobIds
+            DispatchQueue.main.async {
+                self.filterNews()
+            }
+        }
+        //filter NewsItems
+        //fetch jobs
+        Task {
+            DispatchQueue.main.async {
+                self.busy = true
+            }
+            if let jobItemIds = await fetchIDArray(url: jobsString) {
+                jobIds = jobItemIds
                 for (_, item) in jobIds.enumerated() {
                     self.jobRequests.append(JobRequest(id: item))
                 }
                 for request in jobRequests {
                     if let item = request.requestJobData() {
-                        self.jobItems.append(item)
+                        DispatchQueue.main.async {
+                            self.jobItems.append(item)
+                        }
                     }
                 }
             }
-            busy = false
+            DispatchQueue.main.async {
+                self.busy = false
+            }
         }
     }
     
@@ -67,19 +82,8 @@ class NewsModel: ObservableObject {
             }
         }
     }
-    
-    func filterJobs() {
-        let jobs = self.jobItems
-        self.jobItems.removeAll()
-        for job in jobs {
-            if job.type == "job" {
-                self.jobItems.append(job)
-            }
-        }
-    }
-    
-    
-    public func fetchIDArray(url: String) -> [Int]? {
+
+    public func fetchIDArray(url: String) async -> [Int]? {
         let decoder = JSONDecoder()
         if let url = URL(string: url) {
             do {
@@ -104,4 +108,3 @@ struct Stories: Codable {
     var ids: [Int]
     
 }
-

@@ -8,16 +8,17 @@
 import SwiftUI
 
 struct WelcomeView: View {
+    @EnvironmentObject var newsModel: NewsModel
     var body: some View {
         VStack {
             Text("Welcome To The NewsFeed")
                 .font(.headline)
-            if (NewsModel.shared.busy == true) {
-                ProgressView()
-            }
             Text("Options to the left and right host a variety of items, from jobs to articles")
                 .padding()
                 .font(.subheadline)
+            if newsModel.busy == true {
+            ProgressView()
+            }
         }
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct JobFeed: View {
-    @StateObject var newsModel: NewsModel = NewsModel.shared
+    @EnvironmentObject var newsModel: NewsModel
     var body: some View {
         VStack {
             Text("Jobs")
@@ -16,8 +16,9 @@ struct JobFeed: View {
             Text("Available Jobs: \(newsModel.jobItems.count)")
             List {
                 ForEach(newsModel.jobItems, id: \.self) { job in
-                    Section(job.title ?? "title") {
+                    Section {
                         JobView(job: job)
+                            .padding()
                     }
                 }
             }

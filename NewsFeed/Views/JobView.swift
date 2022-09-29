@@ -12,17 +12,20 @@ struct JobView: View {
     @State var expanded = false
     var body: some View {
         LazyVStack {
-            Text(job.title ?? "job title")
-                .font(.subheadline)
+            Text(job.title ?? "")
+                .font(.headline)
                 .onTapGesture {
                     withAnimation {
                         self.expanded = !expanded
                     }
                 }
             if (expanded) {
-                Text(job.text ?? "job text")
-                RichView(link: job.url ?? "no link available")
+                Text(job.text ?? "")
+                    .lineLimit(3)
+                RichView(link: job.url ?? "https://news.ycombinator.com")
             }
+        }.onDisappear {
+            self.expanded = false
         }
     }
 }
