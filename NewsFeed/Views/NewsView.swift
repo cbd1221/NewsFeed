@@ -33,6 +33,7 @@ struct NewsView: View {
 
 //struct NewsView_Previews: PreviewProvider {
 //    static var previews: some View {
-////        NewsView(newsItem: NewsItem(id: 1, text: "How are you", title: "Helllo Kyli"))
+//        NewsView(newsItem: NewsModel.shared.newsItems[0])
+//            .environmentObject(NewsModel.shared)
 //    }
 //}

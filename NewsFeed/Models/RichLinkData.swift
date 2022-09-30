@@ -6,9 +6,7 @@
 //
 
 import LinkPresentation
-import UIKit
 import SwiftUI
-import Foundation
 
 func richLink(urlString: String, view: UIView) {
     let metadataProvider = LPMetadataProvider()
@@ -47,7 +45,6 @@ struct RichLinkRow: UIViewRepresentable {
         return view
     }
     func updateUIView(_ uiView: LPLinkView, context: Self.Context) {
-        //new instance for each update
     }
 }
 

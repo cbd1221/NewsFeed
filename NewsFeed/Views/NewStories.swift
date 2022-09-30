@@ -18,7 +18,7 @@ struct NewStories: View {
                 ForEach(newsModel.newsItems, id: \.self) { newsItem in
                     Section {
                         NewsView(newsItem: newsItem)
-                            .padding()
+                        NewsFeedFavoriteBar(newsItem: newsItem)
                     }
                 }
             }.listStyle(.insetGrouped)
@@ -30,11 +30,6 @@ struct NewStories: View {
 struct MyApp_Previews: PreviewProvider {
     static var previews: some View {
         NewStories()
+            .environmentObject(NewsModel.shared)
     }
 }
-
-//                Section("Story IDS") {
-//                    ForEach(newsModel.storyIds, id: \.self) {
-//                        Text("Story Id: \($0)")
-//                    }
-//                }

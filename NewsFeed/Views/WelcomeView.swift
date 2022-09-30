@@ -10,21 +10,32 @@ import SwiftUI
 struct WelcomeView: View {
     @EnvironmentObject var newsModel: NewsModel
     var body: some View {
-        VStack {
+        VStack(alignment: .center, spacing: 20) {
             Text("Welcome To The NewsFeed")
                 .font(.headline)
-            Text("Options to the left and right host a variety of items, from jobs to articles")
+                .fontWeight(.bold)
+                
+            Image(systemName: "newspaper.fill")
+                .foregroundColor(.cyan)
+                .scaleEffect(2.5)
                 .padding()
                 .font(.subheadline)
-            if newsModel.busy == true {
-            ProgressView()
+                
+            VStack {
+                if newsModel.busy == true {
+                    ProgressView()
+                        .animation(.default, value: newsModel.newsLoaded)
+                        .progressViewStyle(CircularProgressViewStyle(tint: .indigo))
+                        .scaleEffect(1.5)
+                }
             }
-        }
+        }.navigationTitle(Text("Welcome To The NewsFeed"))
     }
 }
 
-//struct WelcomeView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        WelcomeView()
-//    }
-//}
+struct WelcomeView_Previews: PreviewProvider {
+    static var previews: some View {
+        WelcomeView()
+            .environmentObject(NewsModel.shared)
+    }
+}

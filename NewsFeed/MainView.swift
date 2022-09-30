@@ -27,6 +27,11 @@ struct MainView: View {
                     Label("Jobs", systemImage: "wrench.fill")
                 }
                 .tag(2)
+            FavoritesView().environmentObject(newsModel)
+                .tabItem {
+                    Label("Favorites", systemImage: "heart.circle")
+                }
+                .tag(3)
         }
     }
 }

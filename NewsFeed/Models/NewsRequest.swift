@@ -1,5 +1,5 @@
 //
-//  NewsData.swift
+//  NewsRequest.swift
 //  NewsFeed
 //
 //  Created by Colin Dively on 9/27/22.
@@ -8,19 +8,19 @@
 import Foundation
 import SwiftUI
 
-struct NewsData: Identifiable, Hashable {
-    var id: Int
-    var deleted: Bool
-    var type: String
-    var by: String
-    var time: Int
-    var dead: Bool
-    var kids: [Int]
-    var descendants: Int
-    var score: Int
-    var title: String
-    var url: String
-}
+//struct NewsData: Identifiable, Hashable {
+//    var id: Int
+//    var deleted: Bool
+//    var type: String
+//    var by: String
+//    var time: Int
+//    var dead: Bool
+//    var kids: [Int]
+//    var descendants: Int
+//    var score: Int
+//    var title: String
+//    var url: String
+//}
 
 struct NewsRequest: Identifiable, Codable {
     var id: Int
@@ -52,15 +52,3 @@ struct NewsRequest: Identifiable, Codable {
 //    var url: String
 //}
 
-struct NewsItem: Identifiable, Hashable, Codable {
-    var by: String?
-    var descendants: Int?
-    var id: Int?
-    var kids: [Int]?
-    var score: Int?
-    var text: String?
-    var time: Int?
-    var title: String?
-    var type: String?
-    var url: String?
-}

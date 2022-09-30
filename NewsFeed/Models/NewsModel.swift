@@ -10,13 +10,17 @@ import SwiftUI
 
 class NewsModel: ObservableObject {
     static let shared = NewsModel()
+    @Published var jobsLoaded: Bool
     @Published var busy: Bool
+    @Published var newsLoaded: Bool
     private let bestStoriesString = "https://hacker-news.firebaseio.com/v0/beststories.json?pretty=print"
     private let jobsString = "https://hacker-news.firebaseio.com/v0/jobstories.json?pretty=print"
     var newsRequests: [NewsRequest]
-    var  jobRequests: [JobRequest]
+    var jobRequests: [JobRequest]
     @Published var newsItems: [NewsItem]
     @Published var jobItems: [JobItem]
+    @Published var favoriteNews: [NewsItem] = []
+    @Published var favoriteJobs: [JobItem] = []
     var storyIds: [Int] = []
     var jobIds: [Int] = []
     
@@ -27,6 +31,8 @@ class NewsModel: ObservableObject {
         self.newsItems = []
         self.jobItems = []
         self.busy = false
+        self.newsLoaded = false
+        self.jobsLoaded = false
         Task {
             DispatchQueue.main.async {
                 self.busy = true
@@ -46,10 +52,10 @@ class NewsModel: ObservableObject {
             }
             DispatchQueue.main.async {
                 self.filterNews()
+                self.busy = false
+                self.newsLoaded = true
             }
         }
-        //filter NewsItems
-        //fetch jobs
         Task {
             DispatchQueue.main.async {
                 self.busy = true
@@ -69,6 +75,7 @@ class NewsModel: ObservableObject {
             }
             DispatchQueue.main.async {
                 self.busy = false
+                self.jobsLoaded = true
             }
         }
     }
@@ -82,8 +89,8 @@ class NewsModel: ObservableObject {
             }
         }
     }
-
-    public func fetchIDArray(url: String) async -> [Int]? {
+    
+    func fetchIDArray(url: String) async -> [Int]? {
         let decoder = JSONDecoder()
         if let url = URL(string: url) {
             do {
@@ -100,11 +107,12 @@ class NewsModel: ObservableObject {
         print("returning nil")
         return nil
     }
-
-}
-
-
-struct Stories: Codable {
-    var ids: [Int]
+    
+    func addFavorite(item: JobItem) {
+        favoriteJobs.append(item)
+    }
+    func addFavorite(item: NewsItem) {
+        favoriteNews.append(item)
+    }
     
 }
