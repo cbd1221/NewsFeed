@@ -6,19 +6,16 @@
 //
 
 import SwiftUI
-import LinkPresentation
-import WebKit
+
 
 struct FavoritesView: View {
     @EnvironmentObject var newsModel: NewsModel
     var body: some View {
-        NavigationView {
             TabView {
                 NewsFavoritesList()
                 JobsFavoritesList()
             }
             .tabViewStyle(PageTabViewStyle())
-        }.navigationBarTitleDisplayMode(.inline)
     }
 }
 
@@ -27,6 +24,11 @@ struct NewsFavoritesList: View {
     @EnvironmentObject var newsModel: NewsModel
     var body: some View {
         VStack {
+            HStack() {
+                Spacer()
+                EditButton()
+                    .padding(.horizontal)
+            }
             List {
                 ForEach(newsModel.favoriteNews, id: \.self) { newsItem in
                     Section {
@@ -36,9 +38,6 @@ struct NewsFavoritesList: View {
                 }.onDelete(perform: delete)
             }
             .listStyle(.grouped)
-            .toolbar {
-                EditButton()
-            }
         }
     }
     
@@ -61,6 +60,11 @@ struct JobsFavoritesList: View {
     @EnvironmentObject var newsModel: NewsModel
     var body: some View {
         VStack {
+            HStack() {
+                Spacer()
+                EditButton()
+                    .padding(.horizontal)
+            }
             List {
                 ForEach(newsModel.favoriteJobs, id: \.self) { job in
                     Section {
@@ -68,11 +72,7 @@ struct JobsFavoritesList: View {
                             .padding()
                     }
                 }.onDelete(perform: delete)
-            }
-            .listStyle(.grouped)
-            .toolbar {
-                EditButton()
-            }
+            }.listStyle(.grouped)
         }
     }
     

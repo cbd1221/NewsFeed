@@ -116,3 +116,7 @@ class NewsModel: ObservableObject {
     }
     
 }
+
+extension NewsModel {
+    public static let defaultNewsItem: NewsItem = NewsItem(by: "rakshasha", descendants: 13560, id: 1221, kids: nil, score: 100, text: "This is the text value of our default news item", time: 1001929481, title: "This is the title of a default news item", type: "story", url: "https://news.ycombinator.com")
+}

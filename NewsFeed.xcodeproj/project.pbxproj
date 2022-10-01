@@ -44,7 +44,7 @@
 		3B8C8DFE28E662F40054B32B /* NewsItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsItemModel.swift; sourceTree = "<group>"; };
 		3B8C8E0028E6969A0054B32B /* JobCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCardView.swift; sourceTree = "<group>"; };
 		3B8C8E0228E6A2DD0054B32B /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
-		3B8C8E0428E6A5170054B32B /* NewsFeedFavoriteBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedFavoriteBar.swift; sourceTree = "<group>"; };
+		3B8C8E0428E6A5170054B32B /* NewsFeedFavoriteBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedFavoriteBar.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +61,7 @@
 		3B0D949F28E3F5C2000CC9BB = {
 			isa = PBXGroup;
 			children = (
-				3B8C8E0028E6969A0054B32B /* JobCardView.swift */,
+				3B0D94AB28E3F5C2000CC9BB /* NewsFeedApp.swift */,
 				3B0D94AA28E3F5C2000CC9BB /* NewsFeed */,
 				3B0D94A928E3F5C2000CC9BB /* Products */,
 			);
@@ -78,8 +78,9 @@
 		3B0D94AA28E3F5C2000CC9BB /* NewsFeed */ = {
 			isa = PBXGroup;
 			children = (
-				3B0D94AB28E3F5C2000CC9BB /* NewsFeedApp.swift */,
 				3B62D30E28E5599200D76A09 /* MainView.swift */,
+				3B62D31228E55F2B00D76A09 /* WelcomeView.swift */,
+				3B8C8E0228E6A2DD0054B32B /* FavoritesView.swift */,
 				3B62D31428E5670800D76A09 /* Views */,
 				3B0D94BF28E3FAF0000CC9BB /* Models */,
 				3B0D94AF28E3F5C4000CC9BB /* Assets.xcassets */,
@@ -99,12 +100,11 @@
 		3B0D94BF28E3FAF0000CC9BB /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3B62D30A28E5557300D76A09 /* JobItem.swift */,
+				3B8C8E0728E7D8F60054B32B /* JobModels */,
 				3B62D30828E547C900D76A09 /* RichLinkData.swift */,
 				3B0D94BD28E3FA51000CC9BB /* NewsRequest.swift */,
 				3B8C8DFE28E662F40054B32B /* NewsItemModel.swift */,
 				3B0D94BB28E3FA1B000CC9BB /* NewsModel.swift */,
-				3B8C8E0228E6A2DD0054B32B /* FavoritesView.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -112,14 +112,38 @@
 		3B62D31428E5670800D76A09 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3B62D31228E55F2B00D76A09 /* WelcomeView.swift */,
-				3B0D94C028E3FB39000CC9BB /* NewStories.swift */,
-				3B62D31028E55A7700D76A09 /* JobFeed.swift */,
-				3B8C8E0428E6A5170054B32B /* NewsFeedFavoriteBar.swift */,
-				3B62D30428E5223D00D76A09 /* NewsView.swift */,
-				3B62D30C28E558AA00D76A09 /* JobView.swift */,
+				3B8C8E0828E7D9080054B32B /* NewsViews */,
+				3B8C8E0628E7D8D80054B32B /* JobViews */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		3B8C8E0628E7D8D80054B32B /* JobViews */ = {
+			isa = PBXGroup;
+			children = (
+				3B62D31028E55A7700D76A09 /* JobFeed.swift */,
+				3B8C8E0028E6969A0054B32B /* JobCardView.swift */,
+				3B62D30C28E558AA00D76A09 /* JobView.swift */,
+			);
+			path = JobViews;
+			sourceTree = "<group>";
+		};
+		3B8C8E0728E7D8F60054B32B /* JobModels */ = {
+			isa = PBXGroup;
+			children = (
+				3B62D30A28E5557300D76A09 /* JobItem.swift */,
+			);
+			path = JobModels;
+			sourceTree = "<group>";
+		};
+		3B8C8E0828E7D9080054B32B /* NewsViews */ = {
+			isa = PBXGroup;
+			children = (
+				3B0D94C028E3FB39000CC9BB /* NewStories.swift */,
+				3B62D30428E5223D00D76A09 /* NewsView.swift */,
+				3B8C8E0428E6A5170054B32B /* NewsFeedFavoriteBar.swift */,
+			);
+			path = NewsViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -263,7 +287,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -317,7 +341,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -343,6 +367,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -372,6 +397,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -37,8 +37,15 @@ struct JobFavoriteBar: View {
                 .onTapGesture(count: 2) {
                     self.favorite()
                 }
+        }.onAppear {
+            if NewsModel.shared.favoriteJobs.contains(job) {
+                self.favorited = true
+            } else {
+                self.favorited = false
+            }
         }
     }
+    
     func favorite() {
         if self.favorited == false {
             self.favorited = true
