@@ -14,6 +14,7 @@ struct NewsFeedFavoriteBar: View {
     @State var favorited: Bool = false
     var body: some View {
             HStack {
+                //using this chevron to implement a share function for the future
                 Button { showActionSheet = true } label: { Image(systemName: "chevron.up")}
                     .padding()
                 Spacer()

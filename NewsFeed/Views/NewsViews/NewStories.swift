@@ -21,7 +21,8 @@ struct NewStories: View {
                         NewsFeedFavoriteBar(newsItem: newsItem)
                     }
                 }
-            }.listStyle(.insetGrouped)
+            }
+            .listStyle(.insetGrouped)
         }
     }
 }

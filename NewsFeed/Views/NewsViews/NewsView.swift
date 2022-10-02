@@ -25,9 +25,6 @@ struct NewsView: View {
                     .fixedSize()
             }
         }.background(in: RoundedRectangle(cornerRadius: 10.0))
-            .onDisappear {
-                self.expanded = false
-            }
     }
 }
 
