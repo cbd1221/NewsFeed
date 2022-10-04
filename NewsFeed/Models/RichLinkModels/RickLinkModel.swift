@@ -13,6 +13,7 @@ class ArchivedDataModel: ObservableObject {
     @Published var metadataDB: [LinkData] = []
     @Published var newsDB: [NewsItem] = []
     @Published var jobsDB: [JobItem] = []
+    @Published var recentIDArrary: [Int] = []
     
     
     public func createLinkData(metadata: LPLinkMetadata, id: Int?) {

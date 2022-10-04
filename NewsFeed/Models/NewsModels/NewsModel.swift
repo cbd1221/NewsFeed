@@ -44,9 +44,11 @@ class NewsModel: ObservableObject {
                 self.busy = true
             }
             if let ids = await fetchIDArray(url: bestStoriesString) {
-                storyIds = ids	
-                for (_, item) in storyIds.enumerated() {
-                    newsRequests.append(NewsRequest(id: item))
+                if ArchivedDataModel.shared.recentIDArrary.isEmpty {
+                    storyIds = ids
+                    for (_, item) in storyIds.enumerated() {
+                        newsRequests.append(NewsRequest(id: item))
+                    }
                 }
                 for request in newsRequests {
                     if let item = request.requestNews() {
