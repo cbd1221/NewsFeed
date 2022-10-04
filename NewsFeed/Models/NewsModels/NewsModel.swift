@@ -4,23 +4,29 @@
 //
 //  Created by Colin Dively on 9/27/22.
 //
-import WebKit
-import Foundation
+import LinkPresentation
 import SwiftUI
 
 class NewsModel: ObservableObject {
     static let shared = NewsModel()
+   
     @Published var jobsLoaded: Bool
     @Published var busy: Bool
     @Published var newsLoaded: Bool
+   
     private let bestStoriesString = "https://hacker-news.firebaseio.com/v0/beststories.json?pretty=print"
     private let jobsString = "https://hacker-news.firebaseio.com/v0/jobstories.json?pretty=print"
+    var defaultURL = "https://news.ycombinator.com"
+   
     var newsRequests: [NewsRequest]
     var jobRequests: [JobRequest]
+   
     @Published var newsItems: [NewsItem]
     @Published var jobItems: [JobItem]
     @Published var favoriteNews: [NewsItem] = []
     @Published var favoriteJobs: [JobItem] = []
+    var ArchivedJobData: [NewsItem: LPLinkMetadata] = [:]
+    
     var storyIds: [Int] = []
     var jobIds: [Int] = []
     
@@ -119,4 +125,24 @@ class NewsModel: ObservableObject {
 
 extension NewsModel {
     public static let defaultNewsItem: NewsItem = NewsItem(by: "rakshasha", descendants: 13560, id: 1221, kids: nil, score: 100, text: "This is the text value of our default news item", time: 1001929481, title: "This is the title of a default news item", type: "story", url: "https://news.ycombinator.com")
+    
+    
+    func fetchMetadata(for item: NewsItem) {
+        //grab the item's url and fetch metadata
+        let urlString = item.url ?? self.defaultURL
+        guard let previewURL = URL(string: urlString) else { return }
+        let provider = LPMetadataProvider()
+        provider.startFetchingMetadata(for: previewURL) { (metadata, error) in
+            guard let md = metadata else { return }
+            DispatchQueue.main.async {
+                //pass the metadata into our richlinkmodel's function
+                RichLinkModel.shared.createLinkData(metadata: md, id: item.id)
+            }
+            if error != nil {
+                print(error?.localizedDescription as Any)
+            }
+        }
+    }
+    
+    
 }

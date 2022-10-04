@@ -23,23 +23,15 @@ func richLink(urlString: String, view: UIView) {
 
 struct RichLinkRow: UIViewRepresentable {
     var previewURL: URL
-    @Binding var redraw: Bool
     
     func makeUIView(context: Context) -> LPLinkView {
-        let view = LPLinkView(url: previewURL)
+        let view = LPLinkView()
         let provider = LPMetadataProvider()
         provider.startFetchingMetadata(for: previewURL) { (metadata, error) in
             if let md = metadata {
                 DispatchQueue.main.async {
                     view.metadata = md
-                    self.redraw.toggle()
                 }
-            }
-            else if error != nil {
-                let md = LPLinkMetadata()
-                md.title = ""
-                view.metadata = md
-                self.redraw.toggle()
             }
         }
         return view
@@ -54,11 +46,9 @@ struct StringLink: Identifiable {
 }
 
 struct RichView: View {
-    @State var redrawPreview = false
     var link: String
     
     var body: some View {
-        RichLinkRow(previewURL: URL(string: link)!, redraw: self.$redrawPreview)
+        RichLinkRow(previewURL: URL(string: link)!)
     }
 }
-

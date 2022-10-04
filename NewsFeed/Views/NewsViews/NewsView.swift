@@ -4,11 +4,12 @@
 //
 //  Created by Colin Dively on 9/28/22.
 //
-import WebKit
 import SwiftUI
 import Foundation
 
 struct NewsView: View {
+    @EnvironmentObject var newsModel: NewsModel
+    var richView: RichView
     var newsItem: NewsItem
     @State var expanded = false
     var body: some View {
@@ -21,16 +22,18 @@ struct NewsView: View {
                     }
                 }
             if (expanded) {
-                RichView(link: newsItem.url ?? "https://news.ycombinator.com")
-                    .fixedSize()
+                richView
             }
-        }.background(in: RoundedRectangle(cornerRadius: 10.0))
+        }.animation(.easeIn, value: expanded)
+            .background(in: RoundedRectangle(cornerRadius: 10.0))
     }
 }
 
 //struct NewsView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        NewsView(newsItem: NewsModel.shared.newsItems[0])
+//        NewsView(newsItem: NewsModel.defaultNewsItem)
 //            .environmentObject(NewsModel.shared)
 //    }
 //}
+//
+

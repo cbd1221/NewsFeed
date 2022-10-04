@@ -9,11 +9,9 @@ import SwiftUI
 
 @main
 struct NewsFeedApp: App {
-    @StateObject var newsModel = NewsModel.shared
     var body: some Scene {
         WindowGroup {
             MainView()
-                .environmentObject(newsModel)
         }
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
-    @EnvironmentObject var newsModel: NewsModel
+    @StateObject var newsModel = NewsModel.shared
     @State private var selectedTab = 1
     var body: some View {
         TabView(selection: $selectedTab) {

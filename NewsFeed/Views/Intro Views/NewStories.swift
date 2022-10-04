@@ -17,7 +17,7 @@ struct NewStories: View {
             List {
                 ForEach(newsModel.newsItems, id: \.self) { newsItem in
                     Section {
-                        NewsView(newsItem: newsItem)
+                        NewsView(richView: RichView(link: newsItem.url ?? "https://news.ycombinator.com"), newsItem: newsItem)
                         NewsFeedFavoriteBar(newsItem: newsItem)
                     }
                 }
