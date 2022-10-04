@@ -26,7 +26,7 @@ class NewsModel: ObservableObject {
     @Published var favoriteNews: [NewsItem] = []
     @Published var favoriteJobs: [JobItem] = []
     var ArchivedJobData: [NewsItem: LPLinkMetadata] = [:]
-    
+    var tempNewsArray: [NewsItem] = []
     var storyIds: [Int] = []
     var jobIds: [Int] = []
     
@@ -44,7 +44,7 @@ class NewsModel: ObservableObject {
                 self.busy = true
             }
             if let ids = await fetchIDArray(url: bestStoriesString) {
-                storyIds = ids
+                storyIds = ids	
                 for (_, item) in storyIds.enumerated() {
                     newsRequests.append(NewsRequest(id: item))
                 }
@@ -136,7 +136,7 @@ extension NewsModel {
             guard let md = metadata else { return }
             DispatchQueue.main.async {
                 //pass the metadata into our richlinkmodel's function
-                RichLinkModel.shared.createLinkData(metadata: md, id: item.id)
+                ArchivedDataModel.shared.createLinkData(metadata: md, id: item.id)
             }
             if error != nil {
                 print(error?.localizedDescription as Any)

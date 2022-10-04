@@ -8,9 +8,11 @@ import LinkPresentation
 import Foundation
 
 
-class RichLinkModel: ObservableObject {
-    static let shared = RichLinkModel()
-    var metadataDB: [LinkData] = []
+class ArchivedDataModel: ObservableObject {
+    static let shared = ArchivedDataModel()
+    @Published var metadataDB: [LinkData] = []
+    @Published var newsDB: [NewsItem] = []
+    @Published var jobsDB: [JobItem] = []
     
     
     public func createLinkData(metadata: LPLinkMetadata, id: Int?) {
@@ -19,10 +21,10 @@ class RichLinkModel: ObservableObject {
         linkdata.id = id
         linkdata.metadata = metadata
         metadataDB.append(linkdata)
-        archive()
+        archiveMetadata()
     }
     
-    fileprivate func archive() {
+    fileprivate func archiveMetadata() {
         //archive our metadata on the disk - we want to make this as efficient as possible. Check our cache on init and replace any unused links with the new articles/jobs?
         do {
             let data = try NSKeyedArchiver.archivedData(withRootObject: metadataDB, requiringSecureCoding: true)
