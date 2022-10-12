@@ -12,7 +12,7 @@ struct MainView: View {
     @State private var selectedTab = 1
     var body: some View {
         TabView(selection: $selectedTab) {
-            NewStories().environmentObject(newsModel)
+            NewsFeedView().environmentObject(newsModel)
                 .tabItem {
                     Label("News", systemImage: "newspaper.fill")
                 }
