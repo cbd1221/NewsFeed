@@ -20,7 +20,6 @@ func richLink(urlString: String, view: UIView) {
     }
 }
 
-
 struct RichLinkRow: UIViewRepresentable {
     var previewURL: URL
     @Binding var redraw: Bool

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NewStories: View {
+struct NewsFeedView: View {
     @EnvironmentObject var newsModel: NewsModel
     var body: some View {
         VStack {
@@ -29,7 +29,7 @@ struct NewStories: View {
 
 struct MyApp_Previews: PreviewProvider {
     static var previews: some View {
-        NewStories()
+        NewsFeedView()
             .environmentObject(NewsModel.shared)
     }
 }

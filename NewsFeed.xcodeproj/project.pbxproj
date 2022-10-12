@@ -12,7 +12,7 @@
 		3B0D94B328E3F5C4000CC9BB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3B0D94B228E3F5C4000CC9BB /* Preview Assets.xcassets */; };
 		3B0D94BC28E3FA1B000CC9BB /* NewsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0D94BB28E3FA1B000CC9BB /* NewsModel.swift */; };
 		3B0D94BE28E3FA51000CC9BB /* NewsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0D94BD28E3FA51000CC9BB /* NewsRequest.swift */; };
-		3B0D94C128E3FB39000CC9BB /* NewStories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0D94C028E3FB39000CC9BB /* NewStories.swift */; };
+		3B0D94C128E3FB39000CC9BB /* NewsFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B0D94C028E3FB39000CC9BB /* NewsFeedView.swift */; };
 		3B62D30528E5223D00D76A09 /* NewsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62D30428E5223D00D76A09 /* NewsView.swift */; };
 		3B62D30928E547C900D76A09 /* RichLinkData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62D30828E547C900D76A09 /* RichLinkData.swift */; };
 		3B62D30B28E5557300D76A09 /* JobItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62D30A28E5557300D76A09 /* JobItem.swift */; };
@@ -20,7 +20,7 @@
 		3B62D30F28E5599200D76A09 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62D30E28E5599200D76A09 /* MainView.swift */; };
 		3B62D31128E55A7700D76A09 /* JobFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62D31028E55A7700D76A09 /* JobFeed.swift */; };
 		3B62D31328E55F2B00D76A09 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B62D31228E55F2B00D76A09 /* WelcomeView.swift */; };
-		3B8C8DFF28E662F40054B32B /* NewsItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8C8DFE28E662F40054B32B /* NewsItemModel.swift */; };
+		3B8C8DFF28E662F40054B32B /* NewsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8C8DFE28E662F40054B32B /* NewsItem.swift */; };
 		3B8C8E0128E6969A0054B32B /* JobCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8C8E0028E6969A0054B32B /* JobCardView.swift */; };
 		3B8C8E0328E6A2DD0054B32B /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8C8E0228E6A2DD0054B32B /* FavoritesView.swift */; };
 		3B8C8E0528E6A5170054B32B /* NewsFeedFavoriteBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B8C8E0428E6A5170054B32B /* NewsFeedFavoriteBar.swift */; };
@@ -33,7 +33,7 @@
 		3B0D94B228E3F5C4000CC9BB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3B0D94BB28E3FA1B000CC9BB /* NewsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsModel.swift; sourceTree = "<group>"; };
 		3B0D94BD28E3FA51000CC9BB /* NewsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRequest.swift; sourceTree = "<group>"; };
-		3B0D94C028E3FB39000CC9BB /* NewStories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewStories.swift; sourceTree = "<group>"; };
+		3B0D94C028E3FB39000CC9BB /* NewsFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedView.swift; sourceTree = "<group>"; };
 		3B62D30428E5223D00D76A09 /* NewsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsView.swift; sourceTree = "<group>"; };
 		3B62D30828E547C900D76A09 /* RichLinkData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RichLinkData.swift; sourceTree = "<group>"; };
 		3B62D30A28E5557300D76A09 /* JobItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobItem.swift; sourceTree = "<group>"; };
@@ -41,7 +41,7 @@
 		3B62D30E28E5599200D76A09 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		3B62D31028E55A7700D76A09 /* JobFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobFeed.swift; sourceTree = "<group>"; };
 		3B62D31228E55F2B00D76A09 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
-		3B8C8DFE28E662F40054B32B /* NewsItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsItemModel.swift; sourceTree = "<group>"; };
+		3B8C8DFE28E662F40054B32B /* NewsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsItem.swift; sourceTree = "<group>"; };
 		3B8C8E0028E6969A0054B32B /* JobCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobCardView.swift; sourceTree = "<group>"; };
 		3B8C8E0228E6A2DD0054B32B /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		3B8C8E0428E6A5170054B32B /* NewsFeedFavoriteBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedFavoriteBar.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
@@ -78,9 +78,7 @@
 		3B0D94AA28E3F5C2000CC9BB /* NewsFeed */ = {
 			isa = PBXGroup;
 			children = (
-				3B62D30E28E5599200D76A09 /* MainView.swift */,
-				3B62D31228E55F2B00D76A09 /* WelcomeView.swift */,
-				3B8C8E0228E6A2DD0054B32B /* FavoritesView.swift */,
+				3B3EFF9628F658F000BD49FA /* Intro Views */,
 				3B62D31428E5670800D76A09 /* Views */,
 				3B0D94BF28E3FAF0000CC9BB /* Models */,
 				3B0D94AF28E3F5C4000CC9BB /* Assets.xcassets */,
@@ -100,13 +98,32 @@
 		3B0D94BF28E3FAF0000CC9BB /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				3B8C8E0728E7D8F60054B32B /* JobModels */,
+				3B3EFF9528F6580100BD49FA /* News Models */,
+				3B8C8E0728E7D8F60054B32B /* Job Models */,
 				3B62D30828E547C900D76A09 /* RichLinkData.swift */,
-				3B0D94BD28E3FA51000CC9BB /* NewsRequest.swift */,
-				3B8C8DFE28E662F40054B32B /* NewsItemModel.swift */,
-				3B0D94BB28E3FA1B000CC9BB /* NewsModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		3B3EFF9528F6580100BD49FA /* News Models */ = {
+			isa = PBXGroup;
+			children = (
+				3B0D94BB28E3FA1B000CC9BB /* NewsModel.swift */,
+				3B8C8DFE28E662F40054B32B /* NewsItem.swift */,
+				3B0D94BD28E3FA51000CC9BB /* NewsRequest.swift */,
+			);
+			path = "News Models";
+			sourceTree = "<group>";
+		};
+		3B3EFF9628F658F000BD49FA /* Intro Views */ = {
+			isa = PBXGroup;
+			children = (
+				3B0D94C028E3FB39000CC9BB /* NewsFeedView.swift */,
+				3B8C8E0228E6A2DD0054B32B /* FavoritesView.swift */,
+				3B62D31228E55F2B00D76A09 /* WelcomeView.swift */,
+				3B62D30E28E5599200D76A09 /* MainView.swift */,
+			);
+			path = "Intro Views";
 			sourceTree = "<group>";
 		};
 		3B62D31428E5670800D76A09 /* Views */ = {
@@ -128,18 +145,17 @@
 			path = JobViews;
 			sourceTree = "<group>";
 		};
-		3B8C8E0728E7D8F60054B32B /* JobModels */ = {
+		3B8C8E0728E7D8F60054B32B /* Job Models */ = {
 			isa = PBXGroup;
 			children = (
 				3B62D30A28E5557300D76A09 /* JobItem.swift */,
 			);
-			path = JobModels;
+			path = "Job Models";
 			sourceTree = "<group>";
 		};
 		3B8C8E0828E7D9080054B32B /* NewsViews */ = {
 			isa = PBXGroup;
 			children = (
-				3B0D94C028E3FB39000CC9BB /* NewStories.swift */,
 				3B62D30428E5223D00D76A09 /* NewsView.swift */,
 				3B8C8E0428E6A5170054B32B /* NewsFeedFavoriteBar.swift */,
 			);
@@ -219,7 +235,7 @@
 				3B0D94BC28E3FA1B000CC9BB /* NewsModel.swift in Sources */,
 				3B0D94AC28E3F5C2000CC9BB /* NewsFeedApp.swift in Sources */,
 				3B62D30928E547C900D76A09 /* RichLinkData.swift in Sources */,
-				3B8C8DFF28E662F40054B32B /* NewsItemModel.swift in Sources */,
+				3B8C8DFF28E662F40054B32B /* NewsItem.swift in Sources */,
 				3B8C8E0328E6A2DD0054B32B /* FavoritesView.swift in Sources */,
 				3B62D30D28E558AA00D76A09 /* JobView.swift in Sources */,
 				3B62D30B28E5557300D76A09 /* JobItem.swift in Sources */,
@@ -229,7 +245,7 @@
 				3B8C8E0528E6A5170054B32B /* NewsFeedFavoriteBar.swift in Sources */,
 				3B62D30528E5223D00D76A09 /* NewsView.swift in Sources */,
 				3B8C8E0128E6969A0054B32B /* JobCardView.swift in Sources */,
-				3B0D94C128E3FB39000CC9BB /* NewStories.swift in Sources */,
+				3B0D94C128E3FB39000CC9BB /* NewsFeedView.swift in Sources */,
 				3B0D94BE28E3FA51000CC9BB /* NewsRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

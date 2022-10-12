@@ -8,20 +8,6 @@
 import Foundation
 import SwiftUI
 
-//struct NewsData: Identifiable, Hashable {
-//    var id: Int
-//    var deleted: Bool
-//    var type: String
-//    var by: String
-//    var time: Int
-//    var dead: Bool
-//    var kids: [Int]
-//    var descendants: Int
-//    var score: Int
-//    var title: String
-//    var url: String
-//}
-
 struct NewsRequest: Identifiable, Codable {
     var id: Int
     var uniqueURL: String {
@@ -45,10 +31,3 @@ struct NewsRequest: Identifiable, Codable {
         return nil
     }
 }
-
-//struct NewsItem: Identifiable,Hashable, Codable {
-//    var id: Int
-//    var title: String
-//    var url: String
-//}
-

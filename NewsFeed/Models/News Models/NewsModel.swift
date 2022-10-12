@@ -34,8 +34,8 @@ class NewsModel: ObservableObject {
         self.newsLoaded = false
         self.jobsLoaded = false
         Task {
-            DispatchQueue.main.async {
-                self.busy = true
+            DispatchQueue.main.async {[weak self] in
+                self?.busy = true
             }
             if let ids = await fetchIDArray(url: bestStoriesString) {
                 storyIds = ids
@@ -50,15 +50,15 @@ class NewsModel: ObservableObject {
                     }
                 }
             }
-            DispatchQueue.main.async {
-                self.filterNews()
-                self.busy = false
-                self.newsLoaded = true
+            DispatchQueue.main.async {[weak self] in
+				self?.filterNews()
+                self?.busy = false
+                self?.newsLoaded = true
             }
         }
         Task {
-            DispatchQueue.main.async {
-                self.busy = true
+            DispatchQueue.main.async {[weak self] in
+                self?.busy = true
             }
             if let jobItemIds = await fetchIDArray(url: jobsString) {
                 jobIds = jobItemIds
@@ -73,9 +73,9 @@ class NewsModel: ObservableObject {
                     }
                 }
             }
-            DispatchQueue.main.async {
-                self.busy = false
-                self.jobsLoaded = true
+            DispatchQueue.main.async {[weak self] in
+                self?.busy = false
+                self?.jobsLoaded = true
             }
         }
     }
